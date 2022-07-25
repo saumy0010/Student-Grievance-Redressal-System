@@ -1,15 +1,15 @@
 package sgsystem;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-@WebServlet("/sreg")
-public class Register extends HttpServlet {
+@WebServlet("/Addprnpls")
+public class Addprnpl  extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req,HttpServletResponse resp) throws IOException {
 		String fname=req.getParameter("fname");
@@ -19,7 +19,7 @@ public class Register extends HttpServlet {
 		
 		try {
 			 Connection con=sgsystemcon.connect();
-			 final String sql="insert into suser values (?,?,?,?)";
+			 final String sql="insert into prnpl values (?,?,?,?)";
 			 PreparedStatement ps=con.prepareStatement(sql);
 			 ps.setString(1, fname);
 			 ps.setString(2, lname);
